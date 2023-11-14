@@ -40,8 +40,18 @@ public class CarController : MonoBehaviour
 
     private void Update()
     {
+<<<<<<< Updated upstream
         verticalInput = 1f;
         horizontalInput = 0.01f;
+=======
+        IntervalScript variables = GameObject.FindGameObjectWithTag("Car").GetComponent<IntervalScript>();
+        motorForce = variables.motorForceSent; 
+        breakForce = variables.breakForceSent;
+        horizontalInput = variables.horizontalInputSent;
+        verticalInput = variables.verticalInputSent;
+
+        Debug.Log(motorForce);
+>>>>>>> Stashed changes
     }
 
     private void HandleMotor() {
