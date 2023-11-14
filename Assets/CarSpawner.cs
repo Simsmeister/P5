@@ -4,6 +4,8 @@ public class CarSpawner : MonoBehaviour
 {
     public GameObject carPrefab; // Reference to the car prefab you want to instantiate.
 
+    private GameObject lastInstantiatedCar;
+
     public float rotationAmount;
     void Start()
     {
@@ -14,8 +16,11 @@ public class CarSpawner : MonoBehaviour
     void SpawnCar()
     {
         // Instantiate a car at the position of the GameObject holding this script.
-        GameObject NPCCar = Instantiate(carPrefab, transform.position, Quaternion.identity);
-        NPCCar.transform.Rotate(0f, rotationAmount, 0f);
-
+        lastInstantiatedCar = Instantiate(carPrefab, transform.position, Quaternion.identity);
+        lastInstantiatedCar.transform.Rotate(0f, rotationAmount, 0f);
+    }
+    public GameObject GetLastInstantiatedCar()
+    {
+        return lastInstantiatedCar;
     }
 }

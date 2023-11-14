@@ -1538,6 +1538,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1610265466720824, guid: 02e641040fb499c49a848e40f535164a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4256083195552037196}
+    - targetCorrespondingSourceObject: {fileID: 1610265466720824, guid: 02e641040fb499c49a848e40f535164a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5509791288069725220}
   m_SourcePrefab: {fileID: 100100000, guid: 02e641040fb499c49a848e40f535164a, type: 3}
 --- !u!4 &1055580493731882495 stripped
 Transform:
@@ -1609,7 +1612,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7347375008998631593}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e91b99c4806847a3b5ac2df8681893c, type: 3}
   m_Name: 
@@ -1648,6 +1651,30 @@ MonoBehaviour:
   breakForceSent: 0
   horizontalInputSent: 0
   verticalInputSent: 0
+--- !u!114 &5509791288069725220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7347375008998631593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff1be6eea8a204a7e8045b305a530a4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPointTag: 1stSpawnPoint
+  motorForce: 1000
+  breakForce: 3000
+  maxSteerAngle: 30
+  frontLeftWheelCollider: {fileID: 3650437916501615004}
+  frontRightWheelCollider: {fileID: 1571474210250861080}
+  rearLeftWheelCollider: {fileID: 1717592219423573138}
+  rearRightWheelCollider: {fileID: 6398009181172898941}
+  frontLeftWheelTransform: {fileID: 7349059581104981453}
+  frontRightWheelTransform: {fileID: 7348980156535711727}
+  rearLeftWheelTransform: {fileID: 7349238107254958079}
+  rearRightWheelTransform: {fileID: 7341772287015597919}
 --- !u!4 &7348980156535711727 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4068913174666622, guid: 02e641040fb499c49a848e40f535164a, type: 3}
