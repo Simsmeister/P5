@@ -41,7 +41,7 @@ public class CarController : MonoBehaviour
     private void Update()
     {
         verticalInput = 1f;
-        horizontalInput = 0.2f;
+        horizontalInput = 0.01f;
     }
 
     private void HandleMotor() {
