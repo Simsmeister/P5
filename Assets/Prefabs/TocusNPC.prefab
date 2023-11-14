@@ -1452,6 +1452,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TocusNPC
       objectReference: {fileID: 0}
+    - target: {fileID: 1610265466720824, guid: 02e641040fb499c49a848e40f535164a, type: 3}
+      propertyPath: m_TagString
+      value: NPCCar
+      objectReference: {fileID: 0}
     - target: {fileID: 4013073016293618, guid: 02e641040fb499c49a848e40f535164a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -27.37
@@ -1610,6 +1614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e91b99c4806847a3b5ac2df8681893c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tagName: NPCCar
   motorForce: 1000
   breakForce: 3000
   maxSteerAngle: 30

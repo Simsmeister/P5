@@ -9,6 +9,8 @@ public class CarController : MonoBehaviour
     private float currentSteerAngle, currentbreakForce;
     private bool isBreaking;
 
+    public string tagName;
+
     // Settings
     [SerializeField] private float motorForce, breakForce, maxSteerAngle;
 
@@ -40,7 +42,7 @@ public class CarController : MonoBehaviour
 
     private void Update()
     {
-        IntervalScript variables = GameObject.FindGameObjectWithTag("Car").GetComponent<IntervalScript>();
+        IntervalScript variables = GameObject.FindGameObjectWithTag(tagName).GetComponent<IntervalScript>();
         motorForce = variables.motorForceSent; 
         breakForce = variables.breakForceSent;
         horizontalInput = variables.horizontalInputSent;
