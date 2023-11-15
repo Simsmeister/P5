@@ -8,6 +8,9 @@ TagManager:
   - UICamera
   - NPCCar
   - 1stSpawnPoint
+  - Car
+  - DriveButton
+  - Hand
   layers:
   - Default
   - TransparentFX

@@ -42,7 +42,7 @@ public class CarController : MonoBehaviour
 
     private void Update()
     {
-        IntervalScript variables = GameObject.FindGameObjectWithTag(tagName).GetComponent<IntervalScript>();
+        IntervalPlayer variables = GameObject.FindGameObjectWithTag(tagName).GetComponent<IntervalPlayer>();
         motorForce = variables.motorForceSent; 
         breakForce = variables.breakForceSent;
         horizontalInput = variables.horizontalInputSent;

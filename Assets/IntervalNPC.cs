@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class IntervalScript : MonoBehaviour
+public class IntervalNPC : MonoBehaviour
 {
     [System.Serializable]
     public class Interval

@@ -65,7 +65,7 @@ public class CarControllerNPC : MonoBehaviour
 
         if (lastCar != null)
         {
-            IntervalScript variables = lastCar.GetComponent<IntervalScript>();
+            IntervalNPC variables = lastCar.GetComponent<IntervalNPC>();
 
             motorForce = variables.motorForceSent;
             breakForce = variables.breakForceSent;
