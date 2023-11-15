@@ -26,6 +26,13 @@ public class CarControllerNPC : MonoBehaviour
     [SerializeField] private Transform frontLeftWheelTransform, frontRightWheelTransform;
     [SerializeField] private Transform rearLeftWheelTransform, rearRightWheelTransform;
 
+
+    private void Start()
+    {
+        
+    }
+
+
     private void FixedUpdate() {
         //GetInput();
         HandleMotor();
@@ -47,18 +54,40 @@ public class CarControllerNPC : MonoBehaviour
     private void Update()
     {
 
-        spawnPoint = GameObject.FindGameObjectWithTag(spawnPointTag);
-        carSpawner = spawnPoint.GetComponent<CarSpawner>();
-        lastCar = carSpawner.GetLastInstantiatedCar();
-        Debug.Log(carSpawner.name);
-        IntervalScript variables = lastCar.GetComponent<IntervalScript>();
+        if (lastCar == null)
+        {
+            // If not, obtain a new reference
+            spawnPoint = GameObject.FindGameObjectWithTag(spawnPointTag);
+            carSpawner = spawnPoint.GetComponent<CarSpawner>();
+            lastCar = carSpawner.GetLastInstantiatedCar();
+            Debug.Log(carSpawner.name);
+        }
+
+        if (lastCar != null)
+        {
+            IntervalScript variables = lastCar.GetComponent<IntervalScript>();
+
+            motorForce = variables.motorForceSent;
+            breakForce = variables.breakForceSent;
+            horizontalInput = variables.horizontalInputSent;
+            verticalInput = variables.verticalInputSent;
+
+        Debug.Log(variables.motorForceSent);
+        }
+    else
+    {
+        // Handle the case where lastCar is null, e.g., log an error or take appropriate action
+        Debug.LogError("lastCar is null. Cannot update variables.");
+    }
+
+        /*IntervalScript variables = lastCar.GetComponent<IntervalScript>(); 
 
         motorForce = variables.motorForceSent; 
         breakForce = variables.breakForceSent;
         horizontalInput = variables.horizontalInputSent;
         verticalInput = variables.verticalInputSent;
 
-        Debug.Log(variables.motorForceSent);
+        Debug.Log(variables.motorForceSent);*/
     }
 
     private void HandleMotor() {
