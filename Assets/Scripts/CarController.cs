@@ -27,6 +27,11 @@ public class CarController : MonoBehaviour
         HandleMotor();
         HandleSteering();
         UpdateWheels();
+        IntervalPlayer variables = GameObject.FindGameObjectWithTag(tagName).GetComponent<IntervalPlayer>();
+        motorForce = variables.motorForceSent; 
+        breakForce = variables.breakForceSent;
+        horizontalInput = variables.horizontalInputSent;
+        verticalInput = variables.verticalInputSent;
     }
 
     private void GetInput() {
@@ -42,13 +47,8 @@ public class CarController : MonoBehaviour
 
     private void Update()
     {
-        IntervalPlayer variables = GameObject.FindGameObjectWithTag(tagName).GetComponent<IntervalPlayer>();
-        motorForce = variables.motorForceSent; 
-        breakForce = variables.breakForceSent;
-        horizontalInput = variables.horizontalInputSent;
-        verticalInput = variables.verticalInputSent;
 
-        Debug.Log(motorForce);
+   
     }
 
     private void HandleMotor() {

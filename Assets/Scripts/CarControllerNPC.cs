@@ -38,6 +38,31 @@ public class CarControllerNPC : MonoBehaviour
         HandleMotor();
         HandleSteering();
         UpdateWheels();
+        if (lastCar == null)
+        {
+            // If not, obtain a new reference
+            spawnPoint = GameObject.FindGameObjectWithTag(spawnPointTag);
+            carSpawner = spawnPoint.GetComponent<CarSpawner>();
+            lastCar = carSpawner.GetLastInstantiatedCar();
+            Debug.Log(carSpawner.name);
+        }
+
+        if (lastCar != null)
+        {
+            IntervalNPC variables = lastCar.GetComponent<IntervalNPC>();
+
+            motorForce = variables.motorForceSent;
+            breakForce = variables.breakForceSent;
+            horizontalInput = variables.horizontalInputSent;
+            verticalInput = variables.verticalInputSent;
+
+        Debug.Log(variables.motorForceSent);
+        }
+        else
+        {
+            // Handle the case where lastCar is null, e.g., log an error or take appropriate action
+            Debug.LogError("lastCar is null. Cannot update variables.");
+        }
     }
 
     private void GetInput() {
