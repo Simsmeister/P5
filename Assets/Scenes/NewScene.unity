@@ -45027,7 +45027,7 @@ MonoBehaviour:
   - duration: 1
     motorForceSend: 1000
     breakForceSend: 3000
-    horizontalInputSend: 0.72
+    horizontalInputSend: 0.724
     verticalInputSend: 1
   - duration: 10
     motorForceSend: 1000

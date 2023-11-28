@@ -36,7 +36,7 @@ public class IntervalPlayer : MonoBehaviour
 
     private bool runIntervals = false;
 
-    /*private void Update()
+    private void Update()
     {
         // Check for spacebar input
         if (Input.GetKeyDown(KeyCode.Space))
@@ -55,7 +55,7 @@ public class IntervalPlayer : MonoBehaviour
             }
         }
     }
-    */
+    
     IEnumerator RunIntervals()
     {
         while (runIntervals)
