@@ -1,5 +1,8 @@
-using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems; // Add this line to access the EventTrigger class
+using UnityEngine.UI; // Add this line to access the Button class
+using System.Collections;
+
 
 public class IntervalPlayer : MonoBehaviour
 {
@@ -11,9 +14,14 @@ public class IntervalPlayer : MonoBehaviour
         public float breakForceSend;
         public float horizontalInputSend;
         public float verticalInputSend;
-
-
     }
+
+    public Interval[] intervals;
+
+    public float motorForceSent, breakForceSent, horizontalInputSent, verticalInputSent;
+
+    private bool runIntervals = false;
+
     public void ActivateIntervals()
     {
         Debug.Log("ActivateIntervals called");
@@ -30,32 +38,22 @@ public class IntervalPlayer : MonoBehaviour
         }
     }
 
-    public Interval[] intervals;
-
-    public float motorForceSent, breakForceSent, horizontalInputSent, verticalInputSent;
-
-    private bool runIntervals = false;
-
-    private void Update()
+    public void ButtonPressed()
     {
-        // Check for spacebar input
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            // Toggle the runIntervals flag
-            runIntervals = !runIntervals;
+        // Toggle the runIntervals flag
+        runIntervals = !runIntervals;
 
-            // Start or stop the coroutine based on the flag
-            if (runIntervals)
-            {
-                StartCoroutine(RunIntervals());
-            }
-            else
-            {
-                StopAllCoroutines();
-            }
+        // Start or stop the coroutine based on the flag
+        if (runIntervals)
+        {
+            StartCoroutine(RunIntervals());
+        }
+        else
+        {
+            StopAllCoroutines();
         }
     }
-    
+
     IEnumerator RunIntervals()
     {
         while (runIntervals)
