@@ -36244,8 +36244,8 @@ Transform:
   m_GameObject: {fileID: 1413681107}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.77, y: 0.78, z: 0.14614916}
-  m_LocalScale: {x: 258.7174, y: 0.67666, z: 561.9953}
+  m_LocalPosition: {x: -31.4, y: 0.78, z: 0.14614916}
+  m_LocalScale: {x: 50.605953, y: 0.67666, z: 561.9953}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -55474,6 +55474,7 @@ GameObject:
   - component: {fileID: 1873102719}
   - component: {fileID: 1873102718}
   - component: {fileID: 1873102723}
+  - component: {fileID: 4013072782397287}
   m_Layer: 0
   m_Name: Tocus
   m_TagString: Car
@@ -55734,6 +55735,18 @@ Transform:
   - {fileID: 1717331249}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4013072782397287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610265566926252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 070b3f86d9bedcc468a619d5c3878b4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4021141149332542
 Transform:
   m_ObjectHideFlags: 0
@@ -57861,7 +57874,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4441506345989916628, guid: 80e8ae9befa9c433cb5b28a0fe21421a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.54
+      value: -0.34
       objectReference: {fileID: 0}
     - target: {fileID: 4441506345989916628, guid: 80e8ae9befa9c433cb5b28a0fe21421a, type: 3}
       propertyPath: m_LocalPosition.z
