@@ -1,8 +1,5 @@
 using UnityEngine;
-using UnityEngine.EventSystems; // Add this line to access the EventTrigger class
-using UnityEngine.UI; // Add this line to access the Button class
 using System.Collections;
-
 
 public class IntervalPlayer : MonoBehaviour
 {
@@ -21,36 +18,35 @@ public class IntervalPlayer : MonoBehaviour
     public float motorForceSent, breakForceSent, horizontalInputSent, verticalInputSent;
 
     private bool runIntervals = false;
+    private bool intervalsActivated = false; // Add this variable
 
     public void ActivateIntervals()
     {
         Debug.Log("ActivateIntervals called");
 
-        runIntervals = !runIntervals;
-
-        if (runIntervals)
+        if (!intervalsActivated)
         {
+            intervalsActivated = true; // Mark intervals as activated
+            runIntervals = true; // Set runIntervals to true
             StartCoroutine(RunIntervals());
         }
         else
         {
-            StopAllCoroutines();
+            Debug.Log("Intervals already activated. Can't activate again until scene reloads.");
         }
     }
 
     public void ButtonPressed()
     {
-        // Toggle the runIntervals flag
-        runIntervals = !runIntervals;
-
-        // Start or stop the coroutine based on the flag
-        if (runIntervals)
+        if (!intervalsActivated)
         {
+            intervalsActivated = true; // Mark intervals as activated
+            runIntervals = true; // Set runIntervals to true
             StartCoroutine(RunIntervals());
         }
         else
         {
-            StopAllCoroutines();
+            Debug.Log("Intervals already activated. Can't activate again until scene reloads.");
         }
     }
 
@@ -60,7 +56,6 @@ public class IntervalPlayer : MonoBehaviour
         {
             foreach (var interval in intervals)
             {
-                // Do something with interval.variable1 and interval.variable2
                 Debug.Log($"Interval: {interval.duration}s, motorForceSend: {interval.motorForceSend}, breakForceSend: {interval.breakForceSend}, horizontalInputSend: {interval.horizontalInputSend}, verticalInputSend: {interval.verticalInputSend}");
 
                 motorForceSent = interval.motorForceSend;
@@ -70,6 +65,8 @@ public class IntervalPlayer : MonoBehaviour
 
                 yield return new WaitForSeconds(interval.duration);
             }
+
+            runIntervals = false; // Set runIntervals to false after all intervals have run
         }
     }
 }
