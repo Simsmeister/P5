@@ -12,6 +12,8 @@ TagManager:
   - DriveButton
   - Hand
   - GameOver
+  - Npc
+  - EntityDespawn
   layers:
   - Default
   - TransparentFX

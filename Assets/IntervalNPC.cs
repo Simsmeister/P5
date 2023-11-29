@@ -9,16 +9,12 @@ public class IntervalNPC : MonoBehaviour
         public float duration = 1f;
         public float motorForceSend;
         public float breakForceSend;
-
         public float horizontalInputSend;
-
         public float verticalInputSend;
     }
 
     public Interval[] intervals;
-
     public float motorForceSent, breakForceSent, horizontalInputSent, verticalInputSent;
-
 
     private void Start()
     {
@@ -41,6 +37,17 @@ public class IntervalNPC : MonoBehaviour
 
                 yield return new WaitForSeconds(interval.duration);
             }
+        }
+    }
+
+    // OnTriggerEnter is called when the Collider other enters the trigger
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("EntityDespawn"))
+        {
+            // Despawn the object or handle the despawn logic here
+            Debug.Log("Collided with EntityDespawn collider. Despawning object.");
+            Destroy(gameObject); // Replace this with your own despawn logic if needed
         }
     }
 }
