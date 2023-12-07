@@ -24,15 +24,16 @@ public class IntervalPlayer : MonoBehaviour
     }
 
     public Interval[] intervals;
-
+    // keeps track of the active interval. is updated in the RunIntervals coroutine
     public int intervalCounter = 0;
-
+    // flag to determine whether the coroutine should put its loop on hold to wait for UI interaction. is updated inside the ToggleUI function
     public bool waitForInteraction;
-
+    //variables for car logic
     public float motorForceSent, breakForceSent, horizontalInputSent, verticalInputSent;
-
+    // flag to determine whether coroutine should run
     private bool runIntervals = false;
-    private bool intervalsActivated = false; // Add this variable
+    // Is used inside if-statements but can't remember why
+    private bool intervalsActivated = false; 
 
     public void ActivateIntervals()
     {
