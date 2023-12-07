@@ -15,6 +15,6 @@ public class ButtonController : MonoBehaviour
     void TaskOnClick()
     {
         // Load the "NewScene" when the button is clicked
-        SceneManager.LoadScene("NewScene");
+        SceneManager.LoadScene("Scenario#1");
     }
 }
