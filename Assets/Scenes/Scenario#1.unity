@@ -60782,16 +60782,24 @@ MonoBehaviour:
     breakForceSend: 3000
     horizontalInputSend: -1
     verticalInputSend: 1
+    enableUI: 0
+    uIToToggle: {fileID: 0}
   - duration: 1
     motorForceSend: 1000
     breakForceSend: 3000
     horizontalInputSend: 0.724
     verticalInputSend: 1
+    enableUI: 0
+    uIToToggle: {fileID: 0}
   - duration: 10
     motorForceSend: 1000
     breakForceSend: 3000
     horizontalInputSend: 0
     verticalInputSend: 0.5
+    enableUI: 0
+    uIToToggle: {fileID: 0}
+  intervalCounter: 0
+  waitForInteraction: 0
   motorForceSent: 0
   breakForceSent: 0
   horizontalInputSent: 0
@@ -73182,7 +73190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4441506345989916628, guid: 80e8ae9befa9c433cb5b28a0fe21421a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.34
+      value: -0.67
       objectReference: {fileID: 0}
     - target: {fileID: 4441506345989916628, guid: 80e8ae9befa9c433cb5b28a0fe21421a, type: 3}
       propertyPath: m_LocalPosition.z

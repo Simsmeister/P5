@@ -8,73 +8,98 @@ public class IntervalPlayer : MonoBehaviour
     {
         [Tooltip("Duration of this interval")]
         public float duration = 1f;
-        [Tooltip("Speed")]
         public float motorForceSend;
-        [Tooltip("Breakforce")]
         public float breakForceSend;
-        [Tooltip("Left and Right value")]
         public float horizontalInputSend;
-        [Tooltip("Up and down value")]
         public float verticalInputSend;
-
-        [Tooltip("Enabling this, toggles your chosen UI at the end of this interval")]
         public bool enableUI;
-        [Tooltip("Drag your UI here if a toggle is desired. Drag the object holding this script onto the button interactions and choose the ToggleUI function to toggle the UI off when button is pressed")]
         public GameObject uIToToggle;
     }
 
-    public Interval[] intervals;
-    // keeps track of the active interval. is updated in the RunIntervals coroutine
+    [System.Serializable]
+    public class StartInterval
+    {
+        [Tooltip("Duration of the start interval")]
+        public float duration = 1f;
+        public float motorForceSend;
+        public float breakForceSend;
+        public float horizontalInputSend;
+        public float verticalInputSend;
+        public bool enableUI;
+        public GameObject uIToToggle;
+    }
+
+    [Header("Start Intervals")]
+    [SerializeField] private StartInterval[] startIntervals;
+
+    [Header("Regular Intervals")]
+    [SerializeField] private Interval[] intervals;
+
     public int intervalCounter = 0;
-    // flag to determine whether the coroutine should put its loop on hold to wait for UI interaction. is updated inside the ToggleUI function
     public bool waitForInteraction;
-    //variables for car logic
     public float motorForceSent, breakForceSent, horizontalInputSent, verticalInputSent;
-    // flag to determine whether coroutine should run
     private bool runIntervals = false;
-    // Is used inside if-statements but can't remember why
-    private bool intervalsActivated = false; 
+    private bool startIntervalsRunning = false; // Added flag for start intervals
+    private bool intervalsActivated = false;
+
+    void Start()
+    {
+        StartCoroutine(RunStartIntervals());
+        ActivateIntervals();
+    }
+
+    IEnumerator RunStartIntervals()
+    {
+        startIntervalsRunning = true;
+
+        foreach (var startInterval in startIntervals)
+        {
+            yield return StartCoroutine(RunSingleInterval(startInterval));
+        }
+
+        startIntervalsRunning = false;
+    }
 
     public void ActivateIntervals()
     {
         Debug.Log("ActivateIntervals called");
 
-        if (!intervalsActivated)
+        if (!intervalsActivated && !startIntervalsRunning) // Check if regular intervals are not already running
         {
-            intervalsActivated = true; // Mark intervals as activated
-            runIntervals = true; // Set runIntervals to true
+            intervalsActivated = true;
+            runIntervals = true;
             StartCoroutine(RunIntervals());
         }
         else
         {
-            Debug.Log("Intervals already activated. Can't activate again until scene reloads.");
+            Debug.Log("Intervals already activated or start intervals are running. Can't activate again until scene reloads.");
         }
     }
 
     public void ButtonPressed()
     {
-        if (!intervalsActivated)
+        if (!intervalsActivated && !startIntervalsRunning) // Check if regular intervals are not already running
         {
-            intervalsActivated = true; // Mark intervals as activated
-            runIntervals = true; // Set runIntervals to true
+            intervalsActivated = true;
+            runIntervals = true;
             StartCoroutine(RunIntervals());
         }
         else
         {
-            Debug.Log("Intervals already activated. Can't activate again until scene reloads.");
+            Debug.Log("Intervals already activated or start intervals are running. Can't activate again until scene reloads.");
         }
     }
 
-    public void ToggleUI()
+    public void ToggleUI(GameObject uiToToggle)
     {
-        if (intervals[intervalCounter].uIToToggle.activeSelf == true)
+        if (uiToToggle.activeSelf == true)
         {
-            intervals[intervalCounter].uIToToggle.SetActive(false);
+            uiToToggle.SetActive(false);
             waitForInteraction = false;
         }
-        else if (intervals[intervalCounter].uIToToggle.activeSelf == false)
+        else if (uiToToggle.activeSelf == false)
         {
-            intervals[intervalCounter].uIToToggle.SetActive(true);
+            uiToToggle.SetActive(true);
             waitForInteraction = true;
         }
     }
@@ -86,7 +111,7 @@ public class IntervalPlayer : MonoBehaviour
             foreach (var interval in intervals)
             {
                 if (!waitForInteraction)
-                Debug.Log($"Interval: {interval.duration}s, motorForceSend: {interval.motorForceSend}, breakForceSend: {interval.breakForceSend}, horizontalInputSend: {interval.horizontalInputSend}, verticalInputSend: {interval.verticalInputSend}");
+                    Debug.Log($"Interval: {interval.duration}s, motorForceSend: {interval.motorForceSend}, breakForceSend: {interval.breakForceSend}, horizontalInputSend: {interval.horizontalInputSend}, verticalInputSend: {interval.verticalInputSend}");
 
                 motorForceSent = interval.motorForceSend;
                 breakForceSent = interval.breakForceSend;
@@ -96,13 +121,30 @@ public class IntervalPlayer : MonoBehaviour
                 yield return new WaitForSeconds(interval.duration);
                 intervalCounter++;
 
-                if(intervals[intervalCounter].enableUI == true)
+                if (interval.enableUI)
                 {
-                    ToggleUI();
+                    ToggleUI(interval.uIToToggle);
                 }
             }
 
-            runIntervals = false; // Set runIntervals to false after all intervals have run
+            runIntervals = false;
+        }
+    }
+
+    IEnumerator RunSingleInterval(StartInterval singleInterval)
+    {
+        Debug.Log($"Start Interval: {singleInterval.duration}s, motorForceSend: {singleInterval.motorForceSend}, breakForceSend: {singleInterval.breakForceSend}, horizontalInputSend: {singleInterval.horizontalInputSend}, verticalInputSend: {singleInterval.verticalInputSend}");
+
+        motorForceSent = singleInterval.motorForceSend;
+        breakForceSent = singleInterval.breakForceSend;
+        horizontalInputSent = singleInterval.horizontalInputSend;
+        verticalInputSent = singleInterval.verticalInputSend;
+
+        yield return new WaitForSeconds(singleInterval.duration);
+
+        if (singleInterval.enableUI)
+        {
+            ToggleUI(singleInterval.uIToToggle);
         }
     }
 }

@@ -16,6 +16,8 @@ TagManager:
   - EntityDespawn
   - Enemy
   - GameWin
+  - Blinker
+  - BlinkerBox
   layers:
   - Default
   - TransparentFX
