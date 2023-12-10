@@ -1590,7 +1590,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1873102723}
           m_TargetAssemblyTypeName: IntervalPlayer, Assembly-CSharp
-          m_MethodName: ButtonPressed
+          m_MethodName: ToggleUI
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -87269,7 +87269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c02a7d9c0a5ae0649889039eb7ea2f73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startIntervals:
+  intervals:
   - duration: 6
     motorForceSend: 1000
     breakForceSend: 3000
@@ -87291,7 +87291,6 @@ MonoBehaviour:
     verticalInputSend: 0
     enableUI: 1
     uIToToggle: {fileID: 1717331248}
-  intervals:
   - duration: 3.5
     motorForceSend: 1000
     breakForceSend: 3000
@@ -87334,7 +87333,7 @@ MonoBehaviour:
     verticalInputSend: 1
     enableUI: 0
     uIToToggle: {fileID: 0}
-  intervalCounter: 0
+  intervalCounter: -1
   waitForInteraction: 0
   motorForceSent: 0
   breakForceSent: 0
