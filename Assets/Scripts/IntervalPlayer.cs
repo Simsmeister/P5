@@ -20,11 +20,19 @@ public class IntervalPlayer : MonoBehaviour
         [Tooltip("Drag your UI here if a toggle is desired. Drag the object holding this script onto the button interactions and choose the ToggleUI function to toggle the UI off when button is pressed")]
         public GameObject uIToToggle;
     }
+
     public Interval[] intervals;
+
+    public Interval[] secondIntervals;
+
+    public Interval[] thirdIntervals;
+
+
     // keeps track of the active interval. is updated in the RunIntervals coroutine
-    public int intervalCounter = -1;
+    public int intervalCounterFirst, intervalCounterSecond, intervalCounterThird;
     // flag to determine whether the coroutine should put its loop on hold to wait for UI interaction. is updated inside the ToggleUI function
-    public bool waitForInteraction;
+    public bool waitForInteractionFirst, waitForInteractionSecond, waitForInteractionThird;
+
     //variables for car logic
     public float motorForceSent, breakForceSent, horizontalInputSent, verticalInputSent;
     // flag to determine whether coroutine should run
@@ -35,7 +43,7 @@ public class IntervalPlayer : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(RunIntervals());
+        StartCoroutine(RunFirstIntervals());
     }
     public void ActivateIntervals()
     {
@@ -44,7 +52,7 @@ public class IntervalPlayer : MonoBehaviour
         {
             intervalsActivated = true; // Mark intervals as activated
             runIntervals = true; // Set runIntervals to true
-            StartCoroutine(RunIntervals());
+            StartCoroutine(RunFirstIntervals());
         }
         else
         {
@@ -57,45 +65,42 @@ public class IntervalPlayer : MonoBehaviour
         {
             intervalsActivated = true; // Mark intervals as activated
             runIntervals = true; // Set runIntervals to true
-            StartCoroutine(RunIntervals());
+            StartCoroutine(RunFirstIntervals());
         }
         else
         {
             Debug.Log("Intervals already activated. Can't activate again until scene reloads.");
         }
     }
-    public void ToggleUI()
+    public void ToggleUIFirst()
     {
-        /*if (intervals[intervalCounter].uIToToggle.activeSelf == true)
-        {
-            intervals[intervalCounter].uIToToggle.SetActive(false);
-            waitForInteraction = false;
-        }
-        else if (intervals[intervalCounter].uIToToggle.activeSelf == false)
-        {
-            intervals[intervalCounter].uIToToggle.SetActive(true);
-            waitForInteraction = true;
-        }*/
 
-        if (intervals[intervalCounter].uIToToggle.activeSelf == false)
+        if (intervals[intervalCounterFirst].uIToToggle.activeSelf == false)
         {
-            intervals[intervalCounter].uIToToggle.SetActive(true);
-            waitForInteraction = true;
+            intervals[intervalCounterFirst].uIToToggle.SetActive(true);
+            waitForInteractionFirst = true;
         }
-        /*else if (intervals[intervalCounter].uIToToggle.activeSelf == true)
-        {
-            intervals[intervalCounter].uIToToggle.SetActive(false);
-            waitForInteraction = false;
-        }*/
-
     }
-    IEnumerator RunIntervals()
+
+    public void ToggleUISecond()
+    {
+
+        if (secondIntervals[intervalCounterSecond].uIToToggle.activeSelf == false)
+        {
+            secondIntervals[intervalCounterSecond].uIToToggle.SetActive(true);
+        }
+    }
+            
+        
+
+    
+    IEnumerator RunFirstIntervals()
     {
         while (runIntervals)
         {
             foreach (var interval in intervals)
             {
-                if (!waitForInteraction)
+                if (!waitForInteractionFirst)
                 {
                     Debug.Log($"Interval: {interval.duration}s, motorForceSend: {interval.motorForceSend}, breakForceSend: {interval.breakForceSend}, horizontalInputSend: {interval.horizontalInputSend}, verticalInputSend: {interval.verticalInputSend}");
                     motorForceSent = interval.motorForceSend;
@@ -104,14 +109,84 @@ public class IntervalPlayer : MonoBehaviour
                     verticalInputSent = interval.verticalInputSend;
 
                     yield return new WaitForSeconds(interval.duration);
-                    if(intervals[intervalCounter].enableUI == true)
+                    if(intervals[intervalCounterFirst].enableUI == true)
                     {
-                        ToggleUI();
+                        ToggleUIFirst();
                     }
-                    intervalCounter++;
+                    intervalCounterFirst++;
                 }
                 else 
                 {
+                    horizontalInputSent = 0;
+                    verticalInputSent = 0;
+                    //StopCoroutine(RunFirstIntervals());
+                    yield break;
+                    
+                }
+                 
+            }
+            //runIntervals = false; // Set runIntervals to false after all intervals have run
+            //StopCoroutine(RunFirstIntervals());
+        }
+    }
+
+    public IEnumerator RunSecondIntervals()
+    {
+        while (runIntervals)
+        {
+            foreach (var secondInterval in secondIntervals)
+            {
+                if (!waitForInteractionSecond)
+                {
+                    Debug.Log($"Interval: {secondInterval.duration}s, motorForceSend: {secondInterval.motorForceSend}, breakForceSend: {secondInterval.breakForceSend}, horizontalInputSend: {secondInterval.horizontalInputSend}, verticalInputSend: {secondInterval.verticalInputSend}");
+                    motorForceSent = secondInterval.motorForceSend;
+                    breakForceSent = secondInterval.breakForceSend;
+                    horizontalInputSent = secondInterval.horizontalInputSend;
+                    verticalInputSent = secondInterval.verticalInputSend;
+
+                    yield return new WaitForSeconds(secondInterval.duration);
+                    if(secondIntervals[intervalCounterSecond].enableUI == true)
+                    {
+                        ToggleUISecond();
+                    }
+                    intervalCounterSecond++;
+                }
+                else 
+                {
+                    yield break;
+                    
+                }
+                 
+            }
+            //runIntervals = false; // Set runIntervals to false after all intervals have run
+        }
+    }
+
+    public IEnumerator RunThirdIntervals()
+    {
+        while (runIntervals)
+        {
+            foreach (var thirdInterval in thirdIntervals)
+            {
+                if (!waitForInteractionThird)
+                {
+                    Debug.Log($"Interval: {thirdInterval.duration}s, motorForceSend: {thirdInterval.motorForceSend}, breakForceSend: {thirdInterval.breakForceSend}, horizontalInputSend: {thirdInterval.horizontalInputSend}, verticalInputSend: {thirdInterval.verticalInputSend}");
+                    motorForceSent = thirdInterval.motorForceSend;
+                    breakForceSent = thirdInterval.breakForceSend;
+                    horizontalInputSent = thirdInterval.horizontalInputSend;
+                    verticalInputSent = thirdInterval.verticalInputSend;
+
+                    yield return new WaitForSeconds(thirdInterval.duration);
+                    /*if(afterSecondUIIntervals[intervalCounterThird].enableUI == true)
+                    {
+                        ToggleUISecond();
+                    }*/
+                    intervalCounterThird++;
+                }
+                else 
+                {
+                    horizontalInputSent = 0;
+                    verticalInputSent = 0;
                     yield return null;
                     
                 }

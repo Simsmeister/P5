@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-    private float horizontalInput, verticalInput;
+    public float horizontalInput, verticalInput;
     private float currentSteerAngle, currentbreakForce;
     private bool isBreaking;
 
