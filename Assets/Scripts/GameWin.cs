@@ -3,6 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class GameWin : MonoBehaviour
 {
+    private SceneTransition sceneTransition;
+    void Start()
+    {
+
+        sceneTransition = FindObjectOfType<SceneTransition>();
+
+    }
     private void OnTriggerEnter(Collider other)
     {
         // Check if the collided object has the tag "GameWin"
@@ -20,5 +27,10 @@ public class GameWin : MonoBehaviour
 
         // If you want to do something else, like displaying a UI panel instead of loading a new scene,
         // you can implement your game over logic here.
+
+    }
+    public void SwitchToScene(string sceneName)
+    {
+        sceneTransition.FadeToScene(sceneName);
     }
 }
