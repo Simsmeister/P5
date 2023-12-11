@@ -40589,9 +40589,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1873102723}
-          m_TargetAssemblyTypeName: IntervalPlayer, Assembly-CSharp
-          m_MethodName: ButtonPressed
+        - m_Target: {fileID: 4013072782397289}
+          m_TargetAssemblyTypeName: toggleUI, Assembly-CSharp
+          m_MethodName: ToggleUIFirst
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
