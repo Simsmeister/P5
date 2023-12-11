@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class ButtonController : MonoBehaviour
 {
     public Button yourButton; // Reference to your button in the Unity Editor
+    public string sceneToLoad; // Name of the scene to load
 
     void Start()
     {
@@ -14,7 +15,7 @@ public class ButtonController : MonoBehaviour
 
     void TaskOnClick()
     {
-        // Load the "NewScene" when the button is clicked
-        SceneManager.LoadScene("Scenario#1");
+        // Load the specified scene when the button is clicked
+        SceneManager.LoadScene(sceneToLoad);
     }
 }
