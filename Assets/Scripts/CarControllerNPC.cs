@@ -79,7 +79,7 @@ public class CarControllerNPC : MonoBehaviour
     private void Update()
     {
 
-        if (lastCar == null)
+        /*if (lastCar == null)
         {
             // If not, obtain a new reference
             spawnPoint = GameObject.FindGameObjectWithTag(spawnPointTag);

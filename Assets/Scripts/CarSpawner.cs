@@ -10,7 +10,7 @@ public class CarSpawner : MonoBehaviour
     void Start()
     {
         // Invoke the SpawnCar method every 30 seconds, starting after 0 seconds.
-        InvokeRepeating("SpawnCar", 0f, 10f);
+        InvokeRepeating("SpawnCar", 8f, 28f);
     }
 
     void SpawnCar()
