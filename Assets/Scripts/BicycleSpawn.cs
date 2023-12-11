@@ -6,17 +6,24 @@ public class SpawnAndMovePrefab : MonoBehaviour
     public float spawnInterval = 10f;
     public float movementSpeed = 1f;
 
+    public float spawnStartTime;
+
     private float timer = 0f;
 
+    void Start()
+    {
+        InvokeRepeating("SpawnPrefabInstance", spawnStartTime, 28f);
+    }
+    
     void Update()
     {
-        timer += Time.deltaTime;
+        /*timer += Time.deltaTime;
 
         if (timer >= spawnInterval)
         {
             SpawnPrefabInstance();
             timer = 0f;
-        }
+        }*/
     }
 
     void SpawnPrefabInstance()

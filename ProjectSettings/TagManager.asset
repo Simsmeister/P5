@@ -18,6 +18,8 @@ TagManager:
   - GameWin
   - Blinker
   - BlinkerBox
+  - NPCWalk
+  - ObjectToDelete
   layers:
   - Default
   - TransparentFX

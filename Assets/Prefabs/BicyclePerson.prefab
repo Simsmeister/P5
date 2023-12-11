@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2809212075319648215}
   m_Layer: 0
   m_Name: BicyclePerson
-  m_TagString: Untagged
+  m_TagString: NPCWalk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
