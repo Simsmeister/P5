@@ -88,6 +88,7 @@ public class IntervalPlayer : MonoBehaviour
         if (secondIntervals[intervalCounterSecond].uIToToggle.activeSelf == false)
         {
             secondIntervals[intervalCounterSecond].uIToToggle.SetActive(true);
+            waitForInteractionSecond = true;
         }
     }
             
@@ -153,6 +154,8 @@ public class IntervalPlayer : MonoBehaviour
                 }
                 else 
                 {
+                    horizontalInputSent = 0;
+                    verticalInputSent = 0;
                     yield break;
                     
                 }

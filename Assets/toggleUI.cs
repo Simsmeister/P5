@@ -7,6 +7,8 @@ public class toggleUI : MonoBehaviour
 
     public bool testBool = false;
     public bool testFlag = false;
+    public bool testBoolSecond = false;
+    public bool testFlagSecond = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,12 @@ public class toggleUI : MonoBehaviour
         {
             ToggleUIFirst();
             testFlag = true;
+        }
+
+        if (testBoolSecond && !testFlagSecond)
+        {
+            ToggleUISecond();
+            testFlagSecond = true;
         }
     }
 
