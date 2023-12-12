@@ -16,6 +16,8 @@ public class ObjectMover : MonoBehaviour
 
     public GameObject fireFlyChecker;
 
+    public AudioClip startAudioClip;
+
     public AudioClip[] audioClips; // Array to hold the audio clips
     private AudioSource audioSource; // AudioSource component
 
@@ -40,45 +42,47 @@ public class ObjectMover : MonoBehaviour
 
         // Get the AudioSource component attached to the GameObject
         audioSource = GetComponent<AudioSource>();
+        audioSource.clip = startAudioClip;
+        audioSource.Play();
+        
     }
 
     void Update()
     {
-        if(fireflyInstance.firstTime)
+        
+        if (isWaiting)
         {
-            if (isWaiting)
+         // Check if the wait time has passed
+            if (Time.time - waitStartTime >= waitTimes[currentWaypointIndex])
             {
-            // Check if the wait time has passed
-                if (Time.time - waitStartTime >= waitTimes[currentWaypointIndex])
-                {
-                    isWaiting = false;
-                    MoveToNextWaypoint();
-                }
+                isWaiting = false;
+                MoveToNextWaypoint();
             }
-            else
+        }
+        else
+        {
+            // Calculate the distance covered based on time passed and speed
+            float distanceCovered = (Time.time - startTime) * movementSpeed;
+
+            // Calculate the fraction of the journey completed
+            float fractionOfJourney = distanceCovered / journeyLength;
+
+            if (currentWaypointIndex <= 7)
             {
-                // Calculate the distance covered based on time passed and speed
-                float distanceCovered = (Time.time - startTime) * movementSpeed;
-
-                // Calculate the fraction of the journey completed
-                float fractionOfJourney = distanceCovered / journeyLength;
-
-                if (currentWaypointIndex <= 7)
-                {
                 // Move the object using Lerp (Linear Interpolation)
                 transform.position = Vector3.Lerp(waypoints[currentWaypointIndex].position, waypoints[currentWaypointIndex + 1].position, fractionOfJourney);
-                }
+            }
                 
 
-                // Check if the object has reached the current waypoint
-                if (fractionOfJourney >= 1.0f)
-                {
+            // Check if the object has reached the current waypoint
+            if (fractionOfJourney >= 1.0f)
+            {
                 // Start waiting at the current waypoint
                 isWaiting = true;
                 waitStartTime = Time.time;
             }
         }  
-        }
+        
         
         
     }

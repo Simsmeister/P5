@@ -39,10 +39,21 @@ public class IntervalPlayer : MonoBehaviour
     private bool runIntervals = true;
     private bool intervalsActivated = false;
 
+    private FireflyInstance fireflyInstance;
+    private GameObject fireFlyChecker;
+
+
     // Is used inside if-statements but can't remember why
 
     void Start()
     {
+        fireFlyChecker = GameObject.FindWithTag("FireflyChecker");
+        fireflyInstance = fireFlyChecker.GetComponent<FireflyInstance>();
+
+        if(!fireflyInstance.firstTime)
+        {
+            intervals[0].duration = 2;
+        }
         StartCoroutine(RunFirstIntervals());
     }
     public void ActivateIntervals()
