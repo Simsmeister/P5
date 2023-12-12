@@ -24225,6 +24225,98 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 724506578}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &726268585
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 726268586}
+  - component: {fileID: 726268588}
+  - component: {fileID: 726268587}
+  m_Layer: 0
+  m_Name: Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &726268586
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726268585}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.04197931, y: 0.01948182, z: -0.0008179959, w: 0.99892825}
+  m_LocalPosition: {x: -0.17489624, y: 0.673298, z: -0.12529373}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4013072782397286}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &726268587
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726268585}
+  m_Enabled: 1
+--- !u!20 &726268588
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726268585}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1 &728765492
 GameObject:
   m_ObjectHideFlags: 0
@@ -27776,6 +27868,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 816735219}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &818501031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 818501032}
+  - component: {fileID: 818501033}
+  m_Layer: 0
+  m_Name: FireflyChecker
+  m_TagString: FireflyChecker
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &818501032
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818501031}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.3600006, y: 0.6249999, z: 0.14799881}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4013072782397286}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &818501033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818501031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffd398ee2780044c0a5be5e6904a641d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstTime: 1
 --- !u!1 &827095249
 GameObject:
   m_ObjectHideFlags: 0
@@ -63110,8 +63247,8 @@ MonoBehaviour:
   - {fileID: 544514136}
   - {fileID: 737433497}
   movementSpeed: 1
-  waitTime: 3
-  currentWaypointIndex: 0
+  waitTimes: []
+  fireFlyChecker: {fileID: 0}
   audioClips: []
 --- !u!1001 &1593309771
 PrefabInstance:
@@ -81277,7 +81414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intervals:
-  - duration: 20
+  - duration: 23
     motorForceSend: 1000
     breakForceSend: 3000
     horizontalInputSend: 0
@@ -95674,8 +95811,17 @@ MonoBehaviour:
   - {fileID: 1228033397}
   - {fileID: 737433497}
   movementSpeed: 0.5
-  waitTime: 9
-  currentWaypointIndex: 0
+  waitTimes:
+  - 5
+  - 3
+  - 1
+  - 3
+  - 8.5
+  - 10
+  - 7
+  - 2
+  - 1
+  fireFlyChecker: {fileID: 0}
   audioClips:
   - {fileID: 0}
   - {fileID: 8300000, guid: cc1517c68205e4ba285d35dee07b75ce, type: 3}
@@ -101458,9 +101604,10 @@ GameObject:
   - component: {fileID: 4667869006124952}
   - component: {fileID: 2001128581}
   - component: {fileID: 4667869006124953}
+  - component: {fileID: 4667869006124954}
   m_Layer: 0
   m_Name: FireflyTutorial
-  m_TagString: Untagged
+  m_TagString: FireflyTutorial
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101536,6 +101683,7 @@ Transform:
   - {fileID: 2020606812}
   - {fileID: 1717331249}
   - {fileID: 737433497}
+  - {fileID: 818501032}
   - {fileID: 4667869006124952}
   - {fileID: 1592638079}
   - {fileID: 544514136}
@@ -101545,6 +101693,7 @@ Transform:
   - {fileID: 1790149846}
   - {fileID: 1228033397}
   - {fileID: 1102394749}
+  - {fileID: 726268586}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4013072782397287
@@ -102236,6 +102385,44 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4667869006124954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919912661459666}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a1265f1359eb4868a7f441f35dca713, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intervals:
+  - duration: 3
+    waypoint: {fileID: 734268957}
+  - duration: 4
+    waypoint: {fileID: 851573743}
+  - duration: 10
+    waypoint: {fileID: 1264513217}
+  - duration: 4
+    waypoint: {fileID: 1713946638}
+  - duration: 3
+    waypoint: {fileID: 423708858}
+  - duration: 2
+    waypoint: {fileID: 1717331249}
+  - duration: 6
+    waypoint: {fileID: 1471516815}
+  - duration: 7
+    waypoint: {fileID: 1228033397}
+  - duration: 5
+    waypoint: {fileID: 737433497}
+  runIntervals: 1
+  movementSpeed: 1
+  journeyLength: 0
+  currentWaypointIndex: 0
+  startTime: 0
+  audioClips: []
+  audioSource: {fileID: 0}
 --- !u!4 &4699927917590014
 Transform:
   m_ObjectHideFlags: 0
@@ -132437,6 +132624,10 @@ PrefabInstance:
     - target: {fileID: 2494002218101574375, guid: 80e8ae9befa9c433cb5b28a0fe21421a, type: 3}
       propertyPath: m_Name
       value: XR Origin (XR Rig)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2494002218101574375, guid: 80e8ae9befa9c433cb5b28a0fe21421a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4441506345989916628, guid: 80e8ae9befa9c433cb5b28a0fe21421a, type: 3}
       propertyPath: m_LocalPosition.x
