@@ -111,6 +111,12 @@ public void PlayAudio()
             case 5:
                 PlayClip(audioClips[5]);                
                 break;
+            case 6:
+                PlayClip(audioClips[6]);
+                break;
+            case 7:
+                PlayClip(audioClips[7]);
+                break;
             // Add more cases as needed for each audio clip
             default:
                 Debug.Log("Invalid index");
