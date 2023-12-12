@@ -63111,6 +63111,8 @@ MonoBehaviour:
   - {fileID: 737433497}
   movementSpeed: 1
   waitTime: 3
+  currentWaypointIndex: 0
+  audioClips: []
 --- !u!1001 &1593309771
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -95671,6 +95673,15 @@ MonoBehaviour:
   - {fileID: 737433497}
   movementSpeed: 0.2
   waitTime: 3
+  currentWaypointIndex: 0
+  audioClips:
+  - {fileID: 0}
+  - {fileID: 8300000, guid: f1307825f228b814b960861a544370ec, type: 3}
+  - {fileID: 8300000, guid: 7102de3f3dde29946b45346bd16de170, type: 3}
+  - {fileID: 8300000, guid: d12239a4a549a9f4795beb0cdb5b038d, type: 3}
+  - {fileID: 8300000, guid: 94879cc525cff1c4d93ad1e40e339e0b, type: 3}
+  - {fileID: 8300000, guid: b6ab1008e9a44704c83c306741da5d05, type: 3}
+  - {fileID: 8300000, guid: acecd0c79b3c04c4989e47616c602a1a, type: 3}
 --- !u!4 &2005427453 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4763728976229326, guid: 9b77d12e48b7f364a82333485eca4473, type: 3}
