@@ -63248,6 +63248,7 @@ MonoBehaviour:
   - {fileID: 737433497}
   movementSpeed: 1
   waitTimes: []
+  currentWaypointIndex: 0
   fireFlyChecker: {fileID: 0}
   audioClips: []
 --- !u!1001 &1593309771
@@ -69911,7 +69912,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.013
+  m_Volume: 0.001
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -95821,6 +95822,7 @@ MonoBehaviour:
   - 7
   - 2
   - 1
+  currentWaypointIndex: 0
   fireFlyChecker: {fileID: 0}
   audioClips:
   - {fileID: 0}
@@ -102397,32 +102399,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a1265f1359eb4868a7f441f35dca713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intervals:
-  - duration: 3
-    waypoint: {fileID: 734268957}
-  - duration: 4
-    waypoint: {fileID: 851573743}
-  - duration: 10
-    waypoint: {fileID: 1264513217}
-  - duration: 4
-    waypoint: {fileID: 1713946638}
-  - duration: 3
-    waypoint: {fileID: 423708858}
-  - duration: 2
-    waypoint: {fileID: 1717331249}
-  - duration: 6
-    waypoint: {fileID: 1471516815}
-  - duration: 7
-    waypoint: {fileID: 1228033397}
-  - duration: 5
-    waypoint: {fileID: 737433497}
-  runIntervals: 1
-  movementSpeed: 1
-  journeyLength: 0
-  currentWaypointIndex: 0
-  startTime: 0
-  audioClips: []
-  audioSource: {fileID: 0}
 --- !u!4 &4699927917590014
 Transform:
   m_ObjectHideFlags: 0
