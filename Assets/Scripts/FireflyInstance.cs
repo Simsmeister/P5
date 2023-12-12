@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VectorGraphics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FireflyInstance : MonoBehaviour
 {
     public bool firstTime = true;
     private static FireflyInstance instance;
+
+    
 
     private void Awake()
     {
@@ -24,10 +28,6 @@ public class FireflyInstance : MonoBehaviour
 
     void Start()
     {
-        if(firstTime == false)
-        {
-            GameObject fireflyTutorial = GameObject.FindWithTag("FireflyTutorial");
-            fireflyTutorial.SetActive(false);
-        }
+
     }
 }

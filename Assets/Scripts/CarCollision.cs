@@ -6,7 +6,7 @@ public class CarCollision : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Check if the collided object has the tag "GameOver"
-        if (other.CompareTag("GameOver"))
+        if (other.CompareTag("GameOver") || other.CompareTag("NPCCar"))
         {
             // Call the function to show the game over screen
             ShowGameOverScreen();
