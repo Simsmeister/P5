@@ -6,11 +6,14 @@ public class ObjectMover : MonoBehaviour
     public float movementSpeed = 1.0f; // Adjust the movement speed in the Inspector
     public float waitTime = 3.0f; // Adjust the wait time in the Inspector
 
-    private int currentWaypointIndex = 0;
+    public int currentWaypointIndex = 0;
     private float journeyLength;
     private float startTime;
     private bool isWaiting = false;
     private float waitStartTime;
+
+    public AudioClip[] audioClips; // Array to hold the audio clips
+    private AudioSource audioSource; // AudioSource component
 
     void Start()
     {
@@ -19,6 +22,9 @@ public class ObjectMover : MonoBehaviour
 
         // Record the start time
         startTime = Time.time;
+
+        // Get the AudioSource component attached to the GameObject
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -63,9 +69,10 @@ public class ObjectMover : MonoBehaviour
         {
             // Calculate the total distance between the new waypoints
             CalculateJourneyLength();
-
+            
             // Record the start time for the new journey
             startTime = Time.time;
+            PlayAudio();
         }
         else
         {
@@ -80,4 +87,48 @@ public class ObjectMover : MonoBehaviour
     {
         journeyLength = Vector3.Distance(waypoints[currentWaypointIndex].position, waypoints[currentWaypointIndex + 1].position);
     }
+
+public void PlayAudio()
+    {
+        // Use a switch case statement to play the audio based on the index
+        switch (currentWaypointIndex)
+        {
+            case 0:
+                PlayClip(audioClips[0]);
+                break;
+            case 1:
+                PlayClip(audioClips[1]);
+                break;
+            case 2:
+                PlayClip(audioClips[2]);
+                break;
+            case 3:
+                PlayClip(audioClips[3]);
+                break;
+            case 4:                
+                PlayClip(audioClips[4]);
+                break;
+            case 5:
+                PlayClip(audioClips[5]);                
+                break;
+            // Add more cases as needed for each audio clip
+            default:
+                Debug.Log("Invalid index");
+                break;
+        }
+    }
+
+    private void PlayClip(AudioClip clip)
+    {
+        if (clip != null)
+        {
+            audioSource.clip = clip;
+            audioSource.Play();
+        }
+        else
+        {
+            Debug.LogError("Audio clip is null");
+        }
+    }
 }
+
