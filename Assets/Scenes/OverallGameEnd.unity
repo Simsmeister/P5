@@ -288,7 +288,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3, y: -304}
+  m_AnchoredPosition: {x: 3, y: -352}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &189314234
@@ -1278,7 +1278,6 @@ GameObject:
   - component: {fileID: 710565962}
   - component: {fileID: 710565961}
   - component: {fileID: 710565960}
-  - component: {fileID: 710565964}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -1414,25 +1413,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 710565958}
   m_CullTransparentMesh: 1
---- !u!114 &710565964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 710565958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7951c64acb0fa62458bf30a60089fe2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 0
-  m_CheckFor2DOcclusion: 0
-  m_CheckFor3DOcclusion: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RaycastTriggerInteraction: 1
 --- !u!1 &713960809
 GameObject:
   m_ObjectHideFlags: 0
@@ -2364,7 +2344,6 @@ RectTransform:
   - {fileID: 610397553}
   - {fileID: 472935054}
   - {fileID: 189314233}
-  - {fileID: 710565959}
   - {fileID: 906272339}
   - {fileID: 2132807249}
   - {fileID: 436503937}
@@ -2372,6 +2351,7 @@ RectTransform:
   - {fileID: 502951215}
   - {fileID: 491721162}
   - {fileID: 1927259252}
+  - {fileID: 710565959}
   m_Father: {fileID: 959292363}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
