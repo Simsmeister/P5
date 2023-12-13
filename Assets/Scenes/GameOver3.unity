@@ -573,8 +573,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Du skal husk at orientere dig, og k\xF8re ud n\xE5r der ikke andre biler
-    og/eller cykler"
+  m_text: "Du skal husk at orientere dig, og k\xF8re ud n\xE5r der ikke andre biler,
+    fodg\xE6ngere eller cykler"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 73ed9bbe5eca41d498cef2d458f7dd17, type: 2}
   m_sharedMaterial: {fileID: 7055235546687348222, guid: 73ed9bbe5eca41d498cef2d458f7dd17, type: 2}
