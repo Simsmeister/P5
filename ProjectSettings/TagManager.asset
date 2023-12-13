@@ -23,6 +23,8 @@ TagManager:
   - FireflyChecker
   - FireflyTutorial
   - FireflyFail
+  - BlinkerBoxOther
+  - BlinkerOther
   layers:
   - Default
   - TransparentFX
