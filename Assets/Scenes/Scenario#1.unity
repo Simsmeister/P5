@@ -2265,6 +2265,52 @@ PhysicMaterial:
   bounciness: 0
   frictionCombine: 0
   bounceCombine: 0
+--- !u!1 &83897466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 83897467}
+  - component: {fileID: 83897468}
+  m_Layer: 0
+  m_Name: FireflyUpdater
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &83897467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83897466}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4013072782397286}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &83897468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83897466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c785946f021d447a103c97e2e0dd8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireflyChecker: {fileID: 0}
+  fireflyFail: {fileID: 1592638078}
 --- !u!43 &84619751
 Mesh:
   m_ObjectHideFlags: 0
@@ -27894,11 +27940,11 @@ Transform:
   m_GameObject: {fileID: 818501031}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3600006, y: 0.6249999, z: 0.14799881}
+  m_LocalPosition: {x: -25.73, y: 2.5349998, z: -54.202}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4013072782397286}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &818501033
 MonoBehaviour:
@@ -63201,6 +63247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1592638079}
   - component: {fileID: 1592638080}
+  - component: {fileID: 1592638081}
   m_Layer: 0
   m_Name: FireflyFail
   m_TagString: Untagged
@@ -63217,7 +63264,7 @@ Transform:
   m_GameObject: {fileID: 1592638078}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.277, y: 0.5849999, z: 2.244}
+  m_LocalPosition: {x: -0.27700043, y: 0.5849999, z: 2.2439995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -63247,10 +63294,110 @@ MonoBehaviour:
   - {fileID: 544514136}
   - {fileID: 737433497}
   movementSpeed: 1
-  waitTimes: []
+  waitTimes:
+  - 1
+  - 1
+  - 1
   currentWaypointIndex: 0
   fireFlyChecker: {fileID: 0}
+  startAudioClip: {fileID: 8300000, guid: 7c4d9731472f8bb4f9ff35895a7b245f, type: 3}
   audioClips: []
+--- !u!82 &1592638081
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592638078}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1593309771
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -95824,6 +95971,7 @@ MonoBehaviour:
   - 1
   currentWaypointIndex: 0
   fireFlyChecker: {fileID: 0}
+  startAudioClip: {fileID: 8300000, guid: f1307825f228b814b960861a544370ec, type: 3}
   audioClips:
   - {fileID: 0}
   - {fileID: 8300000, guid: cc1517c68205e4ba285d35dee07b75ce, type: 3}
@@ -101685,9 +101833,9 @@ Transform:
   - {fileID: 2020606812}
   - {fileID: 1717331249}
   - {fileID: 737433497}
-  - {fileID: 818501032}
-  - {fileID: 4667869006124952}
+  - {fileID: 83897467}
   - {fileID: 1592638079}
+  - {fileID: 4667869006124952}
   - {fileID: 544514136}
   - {fileID: 734268957}
   - {fileID: 851573743}
@@ -132806,6 +132954,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 3517389002143211541}
   - {fileID: 713960811}
+  - {fileID: 818501032}
   - {fileID: 4013072782397286}
   - {fileID: 1413681111}
   - {fileID: 1914837125}

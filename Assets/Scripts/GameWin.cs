@@ -1,13 +1,20 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameWin : MonoBehaviour
 {
     private SceneTransition sceneTransition;
+    public string nextSceneName;
+
+    public GameObject fireflyInstance;
     void Start()
     {
 
         sceneTransition = FindObjectOfType<SceneTransition>();
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        nextSceneName = GetNextSceneName(currentSceneName);
+        fireflyInstance = GameObject.FindWithTag("FireflyChecker");
 
     }
     private void OnTriggerEnter(Collider other)
@@ -16,7 +23,8 @@ public class GameWin : MonoBehaviour
         if (other.CompareTag("GameWin"))
         {
             // Call the function to show the game over screen
-            ShowGameOverScreen();
+            SwitchToScene(nextSceneName);
+            Destroy(fireflyInstance);
         }
     }
 
@@ -32,5 +40,21 @@ public class GameWin : MonoBehaviour
     public void SwitchToScene(string sceneName)
     {
         sceneTransition.FadeToScene(sceneName);
+    }
+
+    string GetNextSceneName(string currentSceneName)
+    {
+        switch (currentSceneName)
+        {
+            case "Scenario#1":
+                return "Scenario#2";
+            case "Scenario#2":
+                return "Scenario#3";
+            case "Scenario#3":
+                return "OverallGameEnd"; // Loop back to the first scene
+            default:
+                Debug.LogError("Unknown scene name: " + currentSceneName);
+                return currentSceneName;
+        }
     }
 }

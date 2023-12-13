@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 public class IntervalPlayer : MonoBehaviour
 {
     [System.Serializable]
@@ -47,10 +48,11 @@ public class IntervalPlayer : MonoBehaviour
 
     void Start()
     {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         fireFlyChecker = GameObject.FindWithTag("FireflyChecker");
         fireflyInstance = fireFlyChecker.GetComponent<FireflyInstance>();
 
-        if(!fireflyInstance.firstTime)
+        if(!fireflyInstance.firstTime && currentSceneIndex == 1)
         {
             intervals[0].duration = 2;
         }

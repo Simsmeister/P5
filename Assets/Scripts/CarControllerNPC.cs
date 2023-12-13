@@ -44,7 +44,7 @@ public class CarControllerNPC : MonoBehaviour
             spawnPoint = GameObject.FindGameObjectWithTag(spawnPointTag);
             carSpawner = spawnPoint.GetComponent<CarSpawner>();
             lastCar = carSpawner.GetLastInstantiatedCar();
-            Debug.Log(carSpawner.name);
+            
         }
 
         if (lastCar != null)
@@ -56,7 +56,7 @@ public class CarControllerNPC : MonoBehaviour
             horizontalInput = variables.horizontalInputSent;
             verticalInput = variables.verticalInputSent;
 
-        Debug.Log(variables.motorForceSent);
+        
         }
         else
         {

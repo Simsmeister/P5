@@ -34,7 +34,7 @@ public class IntersectionTrigger : MonoBehaviour
         {
             if(other.CompareTag("Car"))
             {
-                SceneManager.LoadScene("GameOverScene");
+                SceneManager.LoadScene("GameOver2");
             }
         }
     }
@@ -54,7 +54,7 @@ public class IntersectionTrigger : MonoBehaviour
 
                 if(stayDuration >= loseTime)
                 {
-                    SceneManager.LoadScene("GameOverScene");
+                    SceneManager.LoadScene("GameOver2");
                 }
             }
         }

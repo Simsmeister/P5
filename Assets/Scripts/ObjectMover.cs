@@ -12,6 +12,8 @@ public class ObjectMover : MonoBehaviour
     private bool isWaiting = false;
     private float waitStartTime;
 
+    private bool playedIntro = true;
+
     private FireflyInstance fireflyInstance;
 
     public GameObject fireFlyChecker;
@@ -67,10 +69,15 @@ public class ObjectMover : MonoBehaviour
             // Calculate the fraction of the journey completed
             float fractionOfJourney = distanceCovered / journeyLength;
 
-            if (currentWaypointIndex <= 7)
+            if (currentWaypointIndex <= waypoints.Length-2)
             {
                 // Move the object using Lerp (Linear Interpolation)
                 transform.position = Vector3.Lerp(waypoints[currentWaypointIndex].position, waypoints[currentWaypointIndex + 1].position, fractionOfJourney);
+            }
+            else if (currentWaypointIndex >= waypoints.Length-1 && playedIntro)
+            {
+                fireflyInstance.firstTime = false;
+                playedIntro = true;
             }
                 
 
@@ -90,7 +97,7 @@ public class ObjectMover : MonoBehaviour
     void MoveToNextWaypoint()
     {
         // Move to the next waypoint
-        if (currentWaypointIndex <= 7)
+        if (currentWaypointIndex <= waypoints.Length-2)
         {
         currentWaypointIndex++;
         }
@@ -148,7 +155,6 @@ public void PlayAudio()
                 break;
             case 7:
                 PlayClip(audioClips[7]);
-                fireflyInstance.firstTime = false;
                 break;
             // Add more cases as needed for each audio clip
             default:

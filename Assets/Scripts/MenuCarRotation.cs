@@ -13,6 +13,6 @@ public class MenuCarRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0, 1, 0 * Time.deltaTime); //rotates 50 degrees per second around z axis
+        transform.Rotate(0, 0.5f, 0 * Time.deltaTime); //rotates 50 degrees per second around z axis
     }
 }
