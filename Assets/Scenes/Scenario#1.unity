@@ -9921,7 +9921,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "K\xF8r ud fra kantsti og forts\xE6tte med 50 km/t"
+  m_text: "K\xF8r ud fra kantsti og forts\xE6tte med 40 km/t"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 73ed9bbe5eca41d498cef2d458f7dd17, type: 2}
   m_sharedMaterial: {fileID: 7055235546687348222, guid: 73ed9bbe5eca41d498cef2d458f7dd17, type: 2}
@@ -19086,7 +19086,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Stig ud af bilen og r\xE5be efter de andre billister"
+  m_text: "K\xF8r ud fra kantsti og forts\xE6tte med 80 km/t"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 73ed9bbe5eca41d498cef2d458f7dd17, type: 2}
   m_sharedMaterial: {fileID: 7055235546687348222, guid: 73ed9bbe5eca41d498cef2d458f7dd17, type: 2}
@@ -82421,7 +82421,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Tag din telefon frem og begynde at se Breaking Bad p\xE5 netflix"
+  m_text: "K\xF8r ud fra kantsti og forts\xE6tte med 50 km/t"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 73ed9bbe5eca41d498cef2d458f7dd17, type: 2}
   m_sharedMaterial: {fileID: 7055235546687348222, guid: 73ed9bbe5eca41d498cef2d458f7dd17, type: 2}
