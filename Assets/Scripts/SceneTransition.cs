@@ -12,44 +12,36 @@ public class SceneTransition : MonoBehaviour
     {
         StartCoroutine(FadeIn());
     }
-
     public void FadeToScene(string sceneName)
     {
         StartCoroutine(FadeOut(sceneName));
     }
-
-    IEnumerator FadeIn()
+    IEnumerator FadeIn() //changes to opacity of the image to full
     {
         float alpha = 1.0f;
-
         while (alpha > 0)
         {
             alpha -= Time.deltaTime * fadeSpeed;
             SetAlpha(alpha);
             yield return null;
         }
-
+        //does so the menus cant be interacted with while fadings
         fadeCanvasGroup.interactable = false;
-        fadeCanvasGroup.blocksRaycasts = false;
+        fadeCanvasGroup.blocksRaycasts = false; 
     }
-
-    IEnumerator FadeOut(string sceneName)
+    IEnumerator FadeOut(string sceneName) //changes the opacity of the image to 0
     {
         fadeCanvasGroup.interactable = true;
         fadeCanvasGroup.blocksRaycasts = true;
-
         float alpha = 0.0f;
-
         while (alpha < 1)
         {
             alpha += Time.deltaTime * fadeSpeed;
             SetAlpha(alpha);
             yield return null;
         }
-
         SceneManager.LoadScene(sceneName);
     }
-
     void SetAlpha(float alpha)
     {
         fadeCanvasGroup.alpha = alpha;

@@ -7,20 +7,19 @@ public class BlinkerController : MonoBehaviour
     [Range(0, 10)]
     public float colorChangeSpeed = 1;
     public AudioClip blinkerSound;
-
     private Renderer ren;
     private AudioSource audioSource;
     private bool insideBlinkerBox = false;
-    private float targetVolume = 0.2f; // Default volume level
+    private float targetVolume = 0.2f;
 
     private void Awake()
     {
         ren = GetComponent<Renderer>();
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = blinkerSound;
-        audioSource.loop = true; // Adjust as needed
+        audioSource.loop = true; 
         audioSource.playOnAwake = false;
-        audioSource.volume = targetVolume; // Set initial volume
+        audioSource.volume = targetVolume; 
     }
 
     private void Update()
@@ -38,17 +37,12 @@ public class BlinkerController : MonoBehaviour
         {
             audioSource.Stop();
         }
-
-        // Adjust volume dynamically
         audioSource.volume = Mathf.Lerp(audioSource.volume, targetVolume, Time.deltaTime * 5.0f);
     }
-
-    // Function to set the target volume
     public void SetVolume(float volume)
     {
         targetVolume = Mathf.Clamp01(volume);
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("BlinkerBox"))
@@ -56,7 +50,6 @@ public class BlinkerController : MonoBehaviour
             insideBlinkerBox = true;
         }
     }
-
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("BlinkerBox"))

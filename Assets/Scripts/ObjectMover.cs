@@ -2,30 +2,25 @@ using UnityEngine;
 
 public class ObjectMover : MonoBehaviour
 {
-    public Transform[] waypoints;   // Assign the waypoints in the Inspector
-    public float movementSpeed = 1.0f; // Adjust the movement speed in the Inspector
-    public float[] waitTimes; // Adjust the wait times in the Inspector for each waypoint
+    public Transform[] waypoints;   
+    public float movementSpeed = 1.0f; 
+    public float[] waitTimes;
 
     public int currentWaypointIndex = 0;
     private float journeyLength;
     private float startTime;
     private bool isWaiting = false;
     private float waitStartTime;
-
     private bool playedIntro = true;
 
     private FireflyInstance fireflyInstance;
-
     public GameObject fireFlyChecker;
-
     public AudioClip startAudioClip;
-
-    public AudioClip[] audioClips; // Array to hold the audio clips
-    private AudioSource audioSource; // AudioSource component
+    public AudioClip[] audioClips; 
+    private AudioSource audioSource;
 
     void Start()
     {
-        // Check if waitTimes array has the same length as waypoints array
         if (waypoints.Length != waitTimes.Length)
         {
             Debug.LogError("waypoints and waitTimes arrays must have the same length!");
@@ -34,27 +29,19 @@ public class ObjectMover : MonoBehaviour
         fireFlyChecker = GameObject.FindWithTag("FireflyChecker");
         fireflyInstance = fireFlyChecker.GetComponent<FireflyInstance>();
 
-        
-
-        // Calculate the total distance between waypoints
+        // calculates total distance between waypoints
         CalculateJourneyLength();
 
-        // Record the start time
         startTime = Time.time;
 
-        // Get the AudioSource component attached to the GameObject
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = startAudioClip;
-        audioSource.Play();
-        
+        audioSource.Play(); 
     }
-
     void Update()
     {
-        
         if (isWaiting)
         {
-         // Check if the wait time has passed
             if (Time.time - waitStartTime >= waitTimes[currentWaypointIndex])
             {
                 isWaiting = false;
@@ -63,15 +50,15 @@ public class ObjectMover : MonoBehaviour
         }
         else
         {
-            // Calculate the distance covered based on time passed and speed
+            // calculatee distance covered based on time passed and speed
             float distanceCovered = (Time.time - startTime) * movementSpeed;
 
-            // Calculate the fraction of the journey completed
+            // calculates fraction of the journey completed
             float fractionOfJourney = distanceCovered / journeyLength;
 
             if (currentWaypointIndex <= waypoints.Length-2)
             {
-                // Move the object using Lerp (Linear Interpolation)
+                // moves the object using Lerp (Linear Interpolation)
                 transform.position = Vector3.Lerp(waypoints[currentWaypointIndex].position, waypoints[currentWaypointIndex + 1].position, fractionOfJourney);
             }
             else if (currentWaypointIndex >= waypoints.Length-1 && playedIntro)
@@ -80,56 +67,42 @@ public class ObjectMover : MonoBehaviour
                 playedIntro = true;
             }
                 
-
-            // Check if the object has reached the current waypoint
+            // checks if object has reached the current waypoint
             if (fractionOfJourney >= 1.0f)
             {
-                // Start waiting at the current waypoint
+                // start waiting at the current waypoint
                 isWaiting = true;
                 waitStartTime = Time.time;
             }
         }  
-        
-        
-        
     }
-
     void MoveToNextWaypoint()
     {
-        // Move to the next waypoint
+        // moves to the next waypoint
         if (currentWaypointIndex <= waypoints.Length-2)
         {
         currentWaypointIndex++;
         }
 
-        // Check if all waypoints have been visited
+        // checks if all waypoints have been visited
         if (currentWaypointIndex < waypoints.Length - 1)
         {
-            // Calculate the total distance between the new waypoints
+            // calculates the total distance between the new waypoints
             CalculateJourneyLength();
 
-            // Record the start time for the new journey
+            // records the start time for the new journey
             startTime = Time.time;
             PlayAudio();
         }
-        else
-        {
-            // Optionally, you can perform additional actions when all waypoints are visited
-            // For example, reset the movement to loop through waypoints again
-            // currentWaypointIndex = 0;
-            // startTime = Time.time;
-        }
     }
-
     void CalculateJourneyLength()
     {
         journeyLength = Vector3.Distance(waypoints[currentWaypointIndex].position, waypoints[currentWaypointIndex + 1].position);
     }
 
-
 public void PlayAudio()
     {
-        // Use a switch case statement to play the audio based on the index
+        // uses switch case statements to play the audio based on the index
         switch (currentWaypointIndex)
         {
             case 0:
@@ -156,13 +129,11 @@ public void PlayAudio()
             case 7:
                 PlayClip(audioClips[7]);
                 break;
-            // Add more cases as needed for each audio clip
             default:
                 Debug.Log("Invalid index");
                 break;
         }
     }
-
     private void PlayClip(AudioClip clip)
     {
         if (clip != null)
