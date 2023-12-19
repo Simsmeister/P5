@@ -22,7 +22,4 @@ A tutorial from GameDev Chef (https://www.youtube.com/watch?v=Z4HA8zJhGEk&ab_cha
 
 
 
-The entire project has been compressed in a zip file. 
-
-
 
