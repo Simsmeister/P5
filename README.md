@@ -4,7 +4,7 @@ Version 2022.3.9f1
 
 # Packages used: 
 
-## Built in Packages
+## From Unity Registry
 - XR Interaction Toolkit (2.5.2)
 - XR Plugin Management (4.3.3)
 - TextMeshPro (3.0.6)
