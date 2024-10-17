@@ -1,3 +1,8 @@
+# Description
+
+## Driving Simulator - Semester Project using Virtual Reality
+
+The project is designed for student drivers and consists of simulated traffic scenarios. The goal of the project is to train drivers in developing their orientation through head movements within a digitally simulated environment.
 
 # Unity Version
 Version 2022.3.9f1 
